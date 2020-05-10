@@ -1,0 +1,31 @@
+{
+  "name": "gulp-starterkit",
+  "version": "1.0.0",
+  "description": "A Gulp starter kit for your next web application",
+  "scripts": {
+    "start": "npm run gulp",
+    "build": "npm run gulp build",
+    "gulp": "gulp --gulpfile build/gulpfile.js"
+  },
+  "keywords": [
+    "Gulp",
+    "Starter kit"
+  ],
+  "author": "Syakir Rahman",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.1.0",
+    "gulp-watch": "^5.0.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "bootstrap": "^4.4.1",
+    "popper.js": "^1.16.1"
+  }
+}
