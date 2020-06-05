@@ -1,9 +1,7 @@
-var path = require('path');
-
-var rootDir = path.resolve("../");					// Root dir
-var srcDir = path.resolve("../src");				// Source files
-var destDir = path.resolve("../dist");				// Build destination
-var npmDir =  path.resolve("../node_modules");		// Npm dir
+var rootDir = "../";			// Root dir
+var srcDir = "../src";			// Source files
+var destDir = "../dist";				// Build destination
+var npmDir = "../node_modules";		// Npm dir
 
 var config = {
 	rootDir: rootDir,
@@ -18,13 +16,11 @@ var config = {
 config.paths.vendor = {
 	scripts: [
 		npmDir + '/jquery/dist/jquery.min.js',
-		npmDir + '/metismenu/dist/metisMenu.min.js',
 		npmDir + '/popper.js/dist/umd/popper.min.js',
 		npmDir + '/bootstrap/dist/js/bootstrap.min.js',
 	],
 	styles: [
 		npmDir + '/font-awesome/css/font-awesome.min.css',
-		npmDir + '/metismenu/dist/metisMenu.min.css',
 		npmDir + '/bootstrap/dist/css/bootstrap.min.css',
 	],
 	fonts: [
