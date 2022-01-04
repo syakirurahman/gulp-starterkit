@@ -1,14 +1,12 @@
-var config = require('../config');
-var gulpConnect = require('gulp-connect');
-var gulpConcat = require('gulp-concat');
-var gulpSass = require('gulp-sass');
+const { config } = require('../config')
+const gulpConnect = require('gulp-connect')
+const gulpConcat = require('gulp-concat')
+const gulpSass = require('gulp-sass')(require('sass'))
 
-module.exports.task = function(gulp, paths) {
-	return function app_styles() {
-    return gulp.src(paths.app.styles)
-      .pipe(gulpConcat('app.scss'))
-      .pipe(gulpSass())
-      .pipe(gulp.dest(config.destDir + '/assets/css/'))
-      .pipe(gulpConnect.reload());
-  }
+module.exports.task = (gulp, paths) => function appStyles () {
+  return gulp.src(paths.app.styles)
+    .pipe(gulpConcat('app.scss'))
+    .pipe(gulpSass())
+    .pipe(gulp.dest(`${config.destDir}/assets/css/`))
+    .pipe(gulpConnect.reload())
 }
