@@ -1,37 +1,36 @@
-var gulp = require('gulp');
-var gulpConnect = require('gulp-connect');
+const gulp = require('gulp')
+const gulpConnect = require('gulp-connect')
 
-/********************************************
-*			Configs And Paths
-*********************************************/
-var config = require('./config');
-var paths = config.paths;
+/**
+* Configs And Paths
+**/
+const { config } = require('./config')
+const paths = config.paths
 
-const vendor_scripts = require('./tasks/vendor-scripts').task(gulp, paths);
-const vendor_styles = require('./tasks/vendor-styles').task(gulp, paths);
-const vendor_fonts = require('./tasks/vendor-fonts').task(gulp, paths);
+const vendorScripts = require('./tasks/vendor-scripts').task(gulp, paths)
+const vendorStyles = require('./tasks/vendor-styles').task(gulp, paths)
+const vendorFonts = require('./tasks/vendor-fonts').task(gulp, paths)
 
-const app_templates = require('./tasks/app-templates').task(gulp, paths);
-const app_scripts = require('./tasks/app-scripts').task(gulp, paths);
-const app_styles = require('./tasks/app-styles').task(gulp, paths);
-const app_images = require('./tasks/app-images').task(gulp, paths);
+const appTemplates = require('./tasks/app-templates').task(gulp, paths)
+const appScripts = require('./tasks/app-scripts').task(gulp, paths)
+const appStyles = require('./tasks/app-styles').task(gulp, paths)
+const appImages = require('./tasks/app-images').task(gulp, paths)
 
-
-gulp.task('server', async function () {
+gulp.task('server', async () => {
   gulpConnect.server({
-      root: config.destDir,
-      port: config.port || 3333,
-      livereload: true
-  });
-});
+    root: config.destDir,
+    port: config.port || 3333,
+    livereload: true
+  })
+})
 
-gulp.task('watch', async function () {
-  gulp.watch(paths.app.templates, app_templates);
-  gulp.watch(paths.app.scripts, app_scripts);
-  gulp.watch(paths.app.styles, app_styles);
-  gulp.watch(paths.app.images, app_images);
-});
+gulp.task('watch', async () => {
+  gulp.watch(paths.app.templates, appTemplates)
+  gulp.watch(paths.app.scripts, appScripts)
+  gulp.watch(paths.app.styles, appStyles)
+  gulp.watch(paths.app.images, appImages)
+})
 
-gulp.task('run', gulp.series(vendor_scripts, vendor_styles, vendor_fonts, app_scripts, app_styles, app_templates, app_images, 'watch'));
+gulp.task('run', gulp.series(vendorScripts, vendorStyles, vendorFonts, appScripts, appStyles, appTemplates, appImages, 'watch'))
 
-gulp.task('default', gulp.series('run', 'server'));
+gulp.task('default', gulp.series('run', 'server'))
